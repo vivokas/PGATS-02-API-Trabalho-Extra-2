@@ -3,6 +3,7 @@
 Esta API permite o registro, login, consulta de usuários e transferências de valores entre usuários. O objetivo é servir de base para estudos de testes e automação de APIs.
 
 ## Tecnologias
+
 - Node.js
 - Express
 - Swagger (documentação)
@@ -30,23 +31,27 @@ Antes de seguir, crie um arquivo .env na pasta raiz contendo as propriedades BAS
   ```sh
   node server.js
   ```
-- A API estará disponível em `http://localhost:3000`
-- A documentação Swagger estará em `http://localhost:3000/api-docs`
+- A API estará disponível em `http://localhost:3001`
+- A documentação Swagger estará em `http://localhost:3001/api-docs`
 
 ## Endpoints principais
 
 ### Registro de usuário
+
 - `POST /users/register`
   - Body: `{ "username": "string", "password": "string", "favorecidos": ["string"] }`
 
 ### Login
+
 - `POST /users/login`
   - Body: `{ "username": "string", "password": "string" }`
 
 ### Listar usuários
+
 - `GET /users`
 
 ### Transferências
+
 - `POST /transfers`
   - Body: `{ "from": "string", "to": "string", "value": number }`
 - `GET /transfers`
@@ -67,15 +72,23 @@ Rode `npm run start-graphql` para executar a API do GraphQL e acesse a URL http:
   - `createTransfer(from, to, value)`: retorna Transfer (requer autenticação JWT)
 
 ## Regras de negócio
+
 - Não é permitido registrar usuários duplicados.
 - Login exige usuário e senha.
 - Transferências acima de R$ 5.000,00 só podem ser feitas para favorecidos.
 - O saldo inicial de cada usuário é de R$ 10.000,00.
 
 ## Testes
+
 - O arquivo `app.js` pode ser importado em ferramentas de teste como Supertest.
 - Para testar a API GraphQL, importe `graphql/app.js` nos testes.
 
 ---
 
 Para dúvidas, consulte a documentação Swagger, GraphQL Playground ou o código-fonte.
+
+## Testes K6
+
+- Foi realizado a criação dos testes com K6.
+- Para rodar os testes, deve estar dentro da pasta do arquivo e rodar o comando: K6_WEB_DASHBOARD=true K6_WEB_DASHBOARD_PERIOD=2s k6 run test-trabalho-extra.js
+- Para gerar o arquivo em .html, rodar o comando: K6_WEB_DASHBOARD=true K6_WEB_DASHBOARD_EXPORT=html-report.html K6_WEB_DASHBOARD_PERIOD=100ms k6 run test-trabalho-extra.js
