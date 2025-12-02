@@ -92,3 +92,4 @@ Para dúvidas, consulte a documentação Swagger, GraphQL Playground ou o códig
 - Foi realizado a criação dos testes com K6.
 - Para rodar os testes, deve estar dentro da pasta do arquivo e rodar o comando: K6_WEB_DASHBOARD=true K6_WEB_DASHBOARD_PERIOD=2s k6 run test-trabalho-extra.js
 - Para gerar o arquivo em .html, rodar o comando: K6_WEB_DASHBOARD=true K6_WEB_DASHBOARD_EXPORT=html-report.html K6_WEB_DASHBOARD_PERIOD=100ms k6 run test-trabalho-extra.js
+  Ajuste
