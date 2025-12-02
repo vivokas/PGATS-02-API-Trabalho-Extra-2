@@ -38,7 +38,7 @@ export default function () {
   check(regRem, { "remetente criado status 201": (r) => r.status === 201 });
   check(regDest, { "destinatário criado status 201": (r) => r.status === 201 });
 
-  sleep(0.3);
+  sleep(1); //sleep(0.3);
 
   ///Realizar login
   const loginUsuario = http.post(
